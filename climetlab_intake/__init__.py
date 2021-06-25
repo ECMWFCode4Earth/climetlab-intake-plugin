@@ -9,13 +9,15 @@ class Intake(Source):
 
     def load_data(self, data):
         if data.endswith('.csv'):
-            data = intake.open_csv(data)
-        elif data.endswith('.nc'):
-            data = intake.open_netcdf(data)
-        elif data.endswith('.zarr'):
-            data = intake.open_zarr(data)
+            return intake.open_csv(data)
+        if data.endswith('.nc'):
+            return intake.open_netcdf(data)
+        if data.endswith('.zarr'):
+            return intake.open_zarr(data)
+        if data.endswith('.grib') or data.endswith('.grb'):
+            return intake.open_grib(data)
 
-        return data
+        raise ValueError(f"Unsupported {data} type.")
 
 
 source = Intake()

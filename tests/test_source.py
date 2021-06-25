@@ -6,6 +6,8 @@ csv_data = 'weather.csv'
 nc_data = 'ECMWF_ERA-40_subset.nc'
 zarr_data = 'example.zarr'
 
+#add grib data source
+
 def test_source():
 
     cml.register_source(climetlab_intake)
