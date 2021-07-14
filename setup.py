@@ -9,19 +9,20 @@ def read(fname):
     return io.open(file_path, encoding="utf-8").read()
 
 
-version = "0.0.5"
+version = "0.0.1"
 
 
 setuptools.setup(
-    name="climetlab-intake",
+    name="climetlab-intake-plugin",
     version=version,
     description="Climetlab Intake source plugin",
     long_description=read("README.md"),
-    author="European Centre for Medium-Range Weather Forecasts (ECMWF)",
-    author_email="software.support@ecmwf.int",
+    author="Ashwin Samudre",
+    author_email="capnoi8@gmail.com",
     license="Apache License Version 2.0",
-    url="https://github.com/ecmwf/climetlab-intake",
-    packages=setuptools.find_packages(),
+    url="https://github.com/esowc/climetlab-intake-plugin",
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src"),
     include_package_data=True,
     install_requires=["intake", "intake-xarray", "intake-iris", "intake-sklearn", "pandas"],
     zip_safe=True,
@@ -41,4 +42,5 @@ setuptools.setup(
         "Programming Language :: Python :: Implementation :: PyPy",
         "Operating System :: OS Independent",
     ],
+    python_requires=">=3.6",
 )
